@@ -1,0 +1,23 @@
+type project
+owners
+    Dmitriy Vlasov <vlasovde@gmail.com>
+authors 
+    Dmitriy Vlasov <vlasovde@gmail.com>
+projectUrl
+    http://github.com/DmitriyVlasov/DmitriyVlasov.Futilities
+iconUrl
+    https://raw.githubusercontent.com/DmitriyVlasov/DmitriyVlasov.Futilities/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/DmitriyVlasov/DmitriyVlasov.Futilities/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    fsharp utilities
+summary
+    My collection of utilities on FSharp.
+description
+    My collection of utilities on FSharp.
+
+
