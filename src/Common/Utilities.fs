@@ -1,4 +1,4 @@
-﻿namespace DmitriyVlasov.Futilities
+﻿namespace Incubator.Common
 
 [<AutoOpen>]
 module ExtraTopLevelOperators =

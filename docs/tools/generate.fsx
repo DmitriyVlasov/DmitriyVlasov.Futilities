@@ -4,17 +4,16 @@
 // --------------------------------------------------------------------------------------
 
 // Web site location for the generated documentation
-let website = "/DmitriyVlasov.Futilities"
+let website = "/Incubator.FSharp"
 
-let githubLink = "http://github.com/DmitriyVlasov/DmitriyVlasov.Futilities"
+let githubLink = "http://github.com/DmitriyVlasov/Incubator.FSharp"
 
 // Specify more information about your project
 let info =
-  [ "project-name", "DmitriyVlasov.Futilities"
+  [ "project-name", "Incubator.FSharp"
     "project-author", "Dmitriy Vlasov <vlasovde@gmail.com>"
     "project-summary", "My collection of utilities on FSharp."
-    "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/DmitriyVlasov.Futilities" ]
+    "project-github", githubLink]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below

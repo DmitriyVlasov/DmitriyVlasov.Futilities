@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/DmitriyVlasov.Futilities"
+#I "../../bin/Incubator.FSharp"
 
 (**
 Introducing your project
@@ -10,8 +10,8 @@ Introducing your project
 Say more
 
 *)
-#r "DmitriyVlasov.Futilities.dll"
-open DmitriyVlasov.Futilities
+#r "Incubator.FSharp.Common.dll"
+open Incubator.FSharp.Common
 
 (**
 Some more info
