@@ -58,6 +58,7 @@
   -->
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
