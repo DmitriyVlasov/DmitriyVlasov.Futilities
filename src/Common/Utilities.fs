@@ -132,31 +132,6 @@ module Scripting =
     |> lines codepage 
     |> Seq.iter System.Console.Out.WriteLine
 
-  ///
-  let wget (url:string) = 
-    use wc = new System.Net.WebClient() 
-    let tmp = System.IO.Path.GetTempFileName() 
-    wc.DownloadFile(url, tmp) 
-    let target = filename url 
-    System.IO.File.Move(tmp,target)
-
-  /// Показать разницу в содержимом двух заданных каталогах
-  let diff dirPath dirPath' =
-    let fileNames = ls >> Seq.map filename >> Set.ofSeq
-    let (-) x x' = fileNames x - fileNames x' |> Set.toSeq
-    dirPath - dirPath', dirPath' - dirPath
-
-  /// Возвращает последовательность пар 
-  /// путь к текстовому файлу и найденное содержимое.filter 
-  let findByContent  codepage searchString filePaths =
-    let condition (line:string) = 
-      line.IndexOf(value = searchString, comparisonType = System.StringComparison.OrdinalIgnoreCase) >= 0
-    let foundLinesOfFile = lines codepage >> Seq.filter condition
-    // TODO: Показывать контекст поиска: +-1 строка выше и ниже найденного вхождения.               
-    filePaths
-    |> Seq.map (fun path -> path, foundLinesOfFile path )
-    |> Seq.filter (fun (_, foundLines) -> foundLines |> Seq.length > 0)
-
 [<RequireQualifiedAccess>]
 module Array2D =
   // http://stackoverflow.com/questions/12870368/array2d-to-array
