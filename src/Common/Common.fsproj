@@ -61,6 +61,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="ScriptingExtension.fs" />
+    <Compile Include="TextExtension.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
