@@ -33,6 +33,13 @@ match Int32.TryParse intStr with
 ///
 module Scripting =
 
+  /// Возвращает кодировку, связанную указанным идентификатором кодовой страницы.
+  /// <param name="codepage"> Идентификатор кодовой страницы предпочтительной подировки.
+  /// возможные значения перечисленны в столбце кодовой стринцы таблицы, которая отображается 
+  /// в теме класса System.Text.Encoding. Или 0 (ноль) если требуется использовать кодировку по умолчанию.</param>
+  let encoding codepage = 
+    System.Text.Encoding.GetEncoding(codepage = codepage)
+
   ///
   let cd dirPath =
     System.Environment.CurrentDirectory <- dirPath
@@ -101,18 +108,14 @@ module Scripting =
   let writeText filePath contents =
     contents .> filePath
   
-  ///
-  let readText filePath = 
-    System.IO.File.ReadAllText(filePath)
+  /// Открывает файл, считывает все строки файла с заданной кодовой страницей и затем закрывает файл.
+  let readText codepage filePath =
+    System.IO.File.ReadAllText(filePath, encoding codepage)
   
-  ///
-  let lines filePath =
-    System.IO.File.ReadAllLines(filePath)
-  
-  ///
-  let linesAsSeq filePath =
-    System.IO.File.ReadLines(filePath)
-  
+  /// Считывает сроки файла с заданной кодовой страницей.
+  let lines codepage filePath = 
+    System.IO.File.ReadLines(filePath, encoding codepage)
+
   ///
   let fileExists filePath = 
     try 
@@ -124,9 +127,9 @@ module Scripting =
     System.Console.Out.WriteLine(text)
   
   ///
-  let cat filePath = 
+  let cat codepage filePath = 
     filePath 
-    |> linesAsSeq 
+    |> lines codepage 
     |> Seq.iter System.Console.Out.WriteLine
 
   ///
@@ -145,10 +148,10 @@ module Scripting =
 
   /// Возвращает последовательность пар 
   /// путь к текстовому файлу и найденное содержимое.filter 
-  let findByContent searchString filePaths =
+  let findByContent  codepage searchString filePaths =
     let condition (line:string) = 
       line.IndexOf(value = searchString, comparisonType = System.StringComparison.OrdinalIgnoreCase) >= 0
-    let foundLinesOfFile = linesAsSeq >> Seq.filter condition
+    let foundLinesOfFile = lines codepage >> Seq.filter condition
     // TODO: Показывать контекст поиска: +-1 строка выше и ниже найденного вхождения.               
     filePaths
     |> Seq.map (fun path -> path, foundLinesOfFile path )
