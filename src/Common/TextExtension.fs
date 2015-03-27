@@ -51,6 +51,23 @@ module Text =
     /// Показывает таблицу кодовых страниц
     static member ShowEncodings = showEncodings
 
+
+  /// <summary>Очищает текст от непечатных символов.</summary>
+  /// <remarks>
+  /// <para>Пример использования:</para> 
+  /// <para>Очистка текстов статей SharePoint от непечатных символов.
+  /// При сохранении статей SharePoint автоматически конвертирует статью в HTML формат,
+  /// иногда вставляя и текст статьи непечатные символы. При использовании текстов из статей Share Point,
+  /// например копировании примера исходного кода из статьи в MSSMS и последующем исполнении или компиляции
+  /// выходит сообщение об ошибке.</para>
+  /// </remarks>
+  let сlearStopSymbols (str:string) = 
+    let clear c = 
+      match Char.GetUnicodeCategory c with
+      | Globalization.UnicodeCategory.Format -> ""
+      | _ -> string c
+    String.collect clear str
+
   
   // Транслитерация
   // ========================================================================
