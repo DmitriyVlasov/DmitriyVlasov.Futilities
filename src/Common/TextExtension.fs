@@ -79,7 +79,6 @@ module Text =
   /// </summary>
   /// <param name="text"></param>
   let tr (text:ru) =
-    // TODO Использовать проект Bond для хранения таблицы транслитерации в файле. см. подробнее: https://github.com/microsoft/bond
     let dic:Map<ru,en> = 
       Map.ofArray [|
         // строчные           
