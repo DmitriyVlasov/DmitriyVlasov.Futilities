@@ -63,6 +63,7 @@
     <Compile Include="ScriptingExtension.fs" />
     <Compile Include="TextExtension.fs" />
     <Compile Include="CSV.fs" />
+    <None Include="Scratchpad.fsx" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
