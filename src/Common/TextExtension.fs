@@ -61,7 +61,7 @@ module Text =
   /// например копировании примера исходного кода из статьи в MSSMS и последующем исполнении или компиляции
   /// выходит сообщение об ошибке.</para>
   /// </remarks>
-  let сlearStopSymbols (str:string) = 
+  let clearStopSymbols (str:string) = 
     let clear c = 
       match Char.GetUnicodeCategory c with
       | Globalization.UnicodeCategory.Format -> ""
