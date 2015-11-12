@@ -58,7 +58,6 @@
   -->
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="ScriptingExtension.fs" />
     <Compile Include="TextExtension.fs" />
