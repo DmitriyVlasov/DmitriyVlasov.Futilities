@@ -4,8 +4,8 @@
 module Scripting =
   open System
   open System.IO
-  open Incubator.Common
-  open Incubator.Common.Scripting
+  open Common
+  open Common.Scripting
 
   /// Посчитать количество файлов в каталоге в разрезе в разрезе раширений.
   /// Если количество файлов меньше порогового показать пути к файлам.

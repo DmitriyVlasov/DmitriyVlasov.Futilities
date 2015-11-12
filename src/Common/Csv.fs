@@ -2,7 +2,7 @@
 
 [<Experimental("Библиотека экспериментальная обработки CSV файлов.")>]
 module Csv = 
-  open Incubator.Common
+  open Common
 
   /// Представление файла CSV
   type Header = Header of string []
