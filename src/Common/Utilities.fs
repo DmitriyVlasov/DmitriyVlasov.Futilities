@@ -13,25 +13,6 @@ module ExtraTopLevelOperators =
     | true  -> previous = current, current 
     | false -> false, current
     
-  /// Активный шаблон. Принимает пару: логическое состояние результата вычисление и значение.
-  /// Если состояние вычисление - истина возвращает "Success значение", иначе возвращает "Failure".
-  let (|Success|Failure|) (success, value) =
-    match (success, value) with
-    | true, value -> Success value
-    | _ -> Failure
-(** 
-// Активный шаблон (|Success|Failure|) заимствован из статьи (F# and Output Parameters)[http://luketopia.net/2014/02/05/fsharp-and-output-parameters]
-
-Пример использования: 
-let intStr = "10"
-
-match Int32.TryParse intStr with
-| Success value -> printfn "It's the number %d." value
-| Failure -> printfn "It's not a number."
-
-*)
-   
-///
 module Scripting =
 
   /// Возвращает кодировку, связанную указанным идентификатором кодовой страницы.
