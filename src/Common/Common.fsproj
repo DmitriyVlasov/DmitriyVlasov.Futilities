@@ -59,6 +59,7 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="Utilities.fs" />
+    <Compile Include="Scripting.fs" />
     <Compile Include="ScriptingExtension.fs" />
     <Compile Include="TextExtension.fs" />
     <Compile Include="CSV.fs" />
