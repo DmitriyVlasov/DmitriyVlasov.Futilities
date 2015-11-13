@@ -1,4 +1,4 @@
-﻿namespace Common
+﻿namespace DmitriyVlasov
 
 [<AutoOpen>]
 module ExtraTopLevelOperators =

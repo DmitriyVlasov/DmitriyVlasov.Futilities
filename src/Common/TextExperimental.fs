@@ -1,10 +1,10 @@
-﻿namespace Common.Experimental
+﻿namespace DmitriyVlasov.Experimental
 
 [<Experimental("Эксперементальные функции обработки текста")>]
 module Text = 
   open System
   open System.Text
-  open Common
+  open DmitriyVlasov
 
   // TODO: См. дополнительно хорошую статью с примерами по использованию активных шаблонов для обработки выходных параметров .Net: http://luketopia.net/2014/02/05/fsharp-and-output-parameters/
   

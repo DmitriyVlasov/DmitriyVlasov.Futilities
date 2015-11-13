@@ -1,8 +1,8 @@
-﻿namespace Incubator.Data.Experimental
+﻿namespace DmitriyVlasov.Data.Experimental
 
 [<Experimental("Библиотека экспериментальная обработки CSV файлов.")>]
 module Csv = 
-  open Common
+  open DmitriyVlasov
 
   /// Представление файла CSV
   type Header = Header of string []

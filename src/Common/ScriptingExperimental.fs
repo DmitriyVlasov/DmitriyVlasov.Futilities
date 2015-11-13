@@ -1,11 +1,11 @@
-﻿namespace Common.Experimental
+﻿namespace DmitriyVlasov.Experimental
 
 [<Experimental("Эксперементальные функции модуля Scripting")>]
 module Scripting =
   open System
   open System.IO
-  open Common
-  open Common.Scripting
+  open DmitriyVlasov
+  open DmitriyVlasov.Scripting
 
   /// Посчитать количество файлов в каталоге в разрезе в разрезе раширений.
   /// Если количество файлов меньше порогового показать пути к файлам.
