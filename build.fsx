@@ -44,7 +44,7 @@ let authors = [ "Dmitriy Vlasov <vlasovde@gmail.com>" ]
 let tags = "fsharp utilities"
 
 // File system information 
-let solutionFile  = "Incubator.FSharp.sln"
+let solutionFile  = "Scratchpad.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
 let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
@@ -55,7 +55,7 @@ let gitOwner = "DmitriyVlasov"
 let gitHome = "https://github.com/" + gitOwner
 
 // The name of the project on GitHub
-let gitName = "Incubator.FSharp"
+let gitName = "Scratchpad"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/DmitriyVlasov"

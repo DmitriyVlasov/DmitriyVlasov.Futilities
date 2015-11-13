@@ -4,11 +4,11 @@ owners
 authors 
     Dmitriy Vlasov <vlasovde@gmail.com>
 projectUrl
-    http://github.com/DmitriyVlasov/Incubator.FSharp
+    http://github.com/DmitriyVlasov/Scratchpad
 iconUrl
-    https://raw.githubusercontent.com/DmitriyVlasov/Incubator.FSharp/master/docs/files/img/logo.png
+    https://raw.githubusercontent.com/DmitriyVlasov/Scratchpad/master/docs/files/img/logo.png
 licenseUrl
-    http://github.com/DmitriyVlasov/Incubator.FSharp/blob/master/LICENSE.txt
+    http://github.com/DmitriyVlasov/Scratchpad/blob/master/LICENSE.txt
 requireLicenseAcceptance
     false
 copyright

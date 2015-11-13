@@ -1,5 +1,5 @@
-[![Issue Stats](http://issuestats.com/github/DmitriyVlasov/Incubator.FSharp/badge/issue)](http://issuestats.com/github/DmitriyVlasov/Incubator.FSharp)
-[![Issue Stats](http://issuestats.com/github/DmitriyVlasov/Incubator.FSharp/badge/pr)](http://issuestats.com/github/DmitriyVlasov/Incubator.FSharp)
+[![Issue Stats](http://issuestats.com/github/DmitriyVlasov/Scratchpad/badge/issue)](http://issuestats.com/github/DmitriyVlasov/Scratchpad)
+[![Issue Stats](http://issuestats.com/github/DmitriyVlasov/Scratchpad/badge/pr)](http://issuestats.com/github/DmitriyVlasov/Scratchpad)
 
 # Futilities
 My collection of utilities on FSharp.
