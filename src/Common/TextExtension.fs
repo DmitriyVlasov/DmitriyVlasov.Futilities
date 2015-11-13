@@ -1,4 +1,4 @@
-﻿namespace Incubator.Common.Experimental
+﻿namespace Common.Experimental
 
 [<Experimental("Эксперементальные функции обработки текста")>]
 module Text = 

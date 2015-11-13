@@ -1,8 +1,8 @@
 ﻿#I @"..\..\bin\Common"
-#r @"Incubator.FSharp.Common.dll"
+#r @"FSharp.Common.dll"
 
-open Incubator.Common
-open Incubator.Common.Experimental
+open Common
+open Common.Experimental
 
 String.paste()
 |> Text.clearStopSymbols
