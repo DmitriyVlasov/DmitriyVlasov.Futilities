@@ -60,9 +60,9 @@
   <ItemGroup>
     <Compile Include="Utilities.fs" />
     <Compile Include="Scripting.fs" />
-    <Compile Include="ScriptingExtension.fs" />
-    <Compile Include="TextExtension.fs" />
-    <Compile Include="CSV.fs" />
+    <Compile Include="ScriptingExperimental.fs" />
+    <Compile Include="TextExperimental.fs" />
+    <Compile Include="CsvExperimental.fs" />
     <None Include="Scratchpad.fsx" />
     <None Include="paket.references" />
     <None Include="paket.template" />
