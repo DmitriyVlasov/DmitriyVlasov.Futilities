@@ -69,9 +69,11 @@
     <Compile Include="ScriptingExperimental.fs" />
     <Compile Include="TextExperimental.fs" />
     <Compile Include="CsvExperimental.fs" />
-    <None Include="Scratchpad.fsx" />
     <None Include="paket.references" />
     <None Include="paket.template" />
+    <None Include="Scripts\load-references.fsx" />
+    <None Include="Scripts\load-project.fsx" />
+    <None Include="Scripts\Scratchpad.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
