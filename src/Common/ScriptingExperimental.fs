@@ -5,6 +5,7 @@ module Scripting =
   open System
   open System.IO
   open DmitriyVlasov
+  open DmitriyVlasov.Collections
   open DmitriyVlasov.Scripting
 
   /// Посчитать количество файлов в каталоге в разрезе в разрезе раширений.

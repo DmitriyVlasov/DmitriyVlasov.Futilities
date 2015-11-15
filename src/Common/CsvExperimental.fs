@@ -3,6 +3,7 @@
 [<Experimental("Библиотека экспериментальная обработки CSV файлов.")>]
 module Csv = 
   open DmitriyVlasov
+  open DmitriyVlasov.Collections
 
   /// Представление файла CSV
   type Header = Header of string []

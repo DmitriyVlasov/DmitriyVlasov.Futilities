@@ -17,11 +17,11 @@ module Text =
   /// Преобрзовать строку в формат даты/времени. Поддерживаются форматы: mm.dd.yy, mm.dd.yyyy, yyyy-mm-dd, dd.mm.yyyy 
   let parseDate str =
      match str with
-       | Text.Regex "(\d{1,2})/(\d{1,2})/(\d{1,2})$"  [Integer m; Integer d; Integer y]
+       | Regex "(\d{1,2})/(\d{1,2})/(\d{1,2})$"  [Integer m; Integer d; Integer y]
             -> new System.DateTime(y + 2000, m, d)
-       | Text.Regex "(\d{1,2})/(\d{1,2})/(\d{3,4})"   [Integer m; Integer d; Integer y]
-       | Text.Regex "(\d{1,4})-(\d{1,2})-(\d{1,2})"   [Integer y; Integer m; Integer d]
-       | Text.Regex "(\d{1,2})\.(\d{1,2})\.(\d{1,4})" [Integer d; Integer m; Integer y]
+       | Regex "(\d{1,2})/(\d{1,2})/(\d{3,4})"   [Integer m; Integer d; Integer y]
+       | Regex "(\d{1,4})-(\d{1,2})-(\d{1,2})"   [Integer y; Integer m; Integer d]
+       | Regex "(\d{1,2})\.(\d{1,2})\.(\d{1,4})" [Integer d; Integer m; Integer y]
             -> new System.DateTime(y, m, d)
        | _ -> failwith "Ошибка преобразования даты"
 

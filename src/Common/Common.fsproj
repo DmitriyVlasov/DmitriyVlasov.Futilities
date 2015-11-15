@@ -58,7 +58,13 @@
   -->
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
-    <Compile Include="Utilities.fs" />
+    <Compile Include="Pervasive.fs" />
+    <Compile Include="String.fs" />
+    <Compile Include="DateTime.fs" />
+    <Compile Include="Collections.Array.fs" />
+    <Compile Include="Collections.Array2D.fs" />
+    <Compile Include="Collections.List.fs" />
+    <Compile Include="Collections.Seq.fs" />
     <Compile Include="Scripting.fs" />
     <Compile Include="ScriptingExperimental.fs" />
     <Compile Include="TextExperimental.fs" />
