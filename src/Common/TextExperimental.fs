@@ -52,7 +52,7 @@ module Text =
     static member ShowEncodings = showEncodings
 
 
-  /// <summary>Очищает текст от непечатных символов.</summary>
+  /// <summary>Очищает строку от Unicode-символов форматирования.</summary>
   /// <remarks>
   /// <para>Пример использования:</para> 
   /// <para>Очистка текстов статей SharePoint от непечатных символов.
@@ -61,14 +61,13 @@ module Text =
   /// например копировании примера исходного кода из статьи в MSSMS и последующем исполнении или компиляции
   /// выходит сообщение об ошибке.</para>
   /// </remarks>
-  let clearStopSymbols (str:string) = 
+  let clearFormatSymbols (str:string) = 
     let clear c = 
       match Char.GetUnicodeCategory c with
       | Globalization.UnicodeCategory.Format -> ""
       | _ -> string c
     String.collect clear str
 
-  
   // Транслитерация
   // ========================================================================
   type private RuLetter = string
