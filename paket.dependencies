@@ -8,5 +8,6 @@ nuget SourceLink.Fake
 
 nuget FSharp.Management
 nuget ExifLib
+nuget FSharp.Configuration
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
