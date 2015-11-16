@@ -71,101 +71,104 @@ module Text =
   
   // Транслитерация
   // ========================================================================
-  type private ru = string
-  type private en = {normal:string; first:string option; initial:string option}
+  type private RuLetter = string
+  type private EnLetter = {
+    Normal  : string
+    First   : string option
+    Initial : string option}
 
   /// <summary>
   /// Транслитерация текста с русского в английский.
   /// </summary>
   /// <param name="text"></param>
-  let tr (text:ru) =
-    let dic:Map<ru,en> = 
+  let tr (text:RuLetter) =
+    let dic:Map<RuLetter,EnLetter> = 
       Map.ofArray [|
-        // строчные           
-        "а", { normal="a";   first=None;      initial=None     }
-        "б", { normal="b";   first=None;      initial=None     }
-        "в", { normal="v";   first=None;      initial=None     }
-        "г", { normal="g";   first=None;      initial=None     }
-        "д", { normal="d";   first=None;      initial=None     }
-        "е", { normal="e";   first=None;      initial=None     }  
-        "ё", { normal="e";   first=None;      initial=None     }   
-        "ж", { normal="zh";  first=None;      initial=Some "z" }
-        "з", { normal="z";   first=None;      initial=None     }
-        "и", { normal="i";   first=None;      initial=None     }
-        "й", { normal="y";   first=None;      initial=None     }
-        "к", { normal="k";   first=None;      initial=None     }
-        "л", { normal="l";   first=None;      initial=None     }
-        "м", { normal="m";   first=None;      initial=None     }
-        "н", { normal="n";   first=None;      initial=None     }
-        "о", { normal="o";   first=None;      initial=None     }
-        "п", { normal="p";   first=None;      initial=None     }
-        "р", { normal="r";   first=None;      initial=None     }
-        "с", { normal="s";   first=None;      initial=None     }
-        "т", { normal="t";   first=None;      initial=None     }
-        "у", { normal="u";   first=None;      initial=None     }
-        "ф", { normal="f";   first=None;      initial=None     }
-        "х", { normal="h";   first=Some "kh"; initial=None     }
-        "ц", { normal="ts";  first=None;      initial=Some "c" }
-        "ч", { normal="ch";  first=None;      initial=Some "c" }
-        "ш", { normal="sh";  first=None;      initial=Some "s" }
-        "щ", { normal="sch"; first=None;      initial=Some "s" }
-        "ъ", { normal="";    first=None;      initial=None     }
-        "ы", { normal="y";   first=None;      initial=None     }
-        "ь", { normal="";    first=None;      initial=None     }
-        "э", { normal="e";   first=None;      initial=None     }
-        "ю", { normal="yu";  first=None;      initial=Some "y" }
-        "я", { normal="ya";  first=None;      initial=Some "y" }
-        // ПРОПИСНЫЕ                                           
-        "А", { normal="A";   first=None;      initial=None     }
-        "Б", { normal="B";   first=None;      initial=None     }
-        "В", { normal="V";   first=None;      initial=None     }
-        "Г", { normal="G";   first=None;      initial=None     }
-        "Д", { normal="D";   first=None;      initial=None     }
-        "Е", { normal="E";   first=None;      initial=None     }
-        "Ё", { normal="E";   first=None;      initial=None     }
-        "Ж", { normal="Zh";  first=None;      initial=Some "Z" }
-        "З", { normal="Z";   first=None;      initial=None     }
-        "И", { normal="I";   first=None;      initial=None     }
-        "Й", { normal="Y";   first=None;      initial=None     }
-        "К", { normal="K";   first=None;      initial=None     }
-        "Л", { normal="L";   first=None;      initial=None     }
-        "М", { normal="M";   first=None;      initial=None     }
-        "Н", { normal="N";   first=None;      initial=None     }
-        "О", { normal="O";   first=None;      initial=None     }
-        "П", { normal="P";   first=None;      initial=None     }
-        "Р", { normal="R";   first=None;      initial=None     }
-        "С", { normal="S";   first=None;      initial=None     }
-        "Т", { normal="T";   first=None;      initial=None     }
-        "У", { normal="U";   first=None;      initial=None     }
-        "Ф", { normal="F";   first=None;      initial=None     }
-        "Х", { normal="H";   first=Some "Kh"; initial=None     }
-        "Ц", { normal="Ts";  first=None;      initial=Some "C" }
-        "Ч", { normal="Ch";  first=None;      initial=Some "C" }
-        "Ш", { normal="Sh";  first=None;      initial=Some "S" }
-        "Щ", { normal="Sch"; first=None;      initial=Some "S" }
-        "Ъ", { normal="";    first=None;      initial=None     }
-        "Ы", { normal="Y";   first=None;      initial=None     }
-        "Ь", { normal="";    first=None;      initial=None     }
-        "Э", { normal="E";   first=None;      initial=None     }
-        "Ю", { normal="Yu";  first=None;      initial=Some "Y" }
-        "Я", { normal="Ya";  first=None;      initial=Some "Y" }
+        // строчные
+        "а", { Normal="a";   First=None;      Initial=None     }
+        "б", { Normal="b";   First=None;      Initial=None     }
+        "в", { Normal="v";   First=None;      Initial=None     }
+        "г", { Normal="g";   First=None;      Initial=None     }
+        "д", { Normal="d";   First=None;      Initial=None     }
+        "е", { Normal="e";   First=None;      Initial=None     }
+        "ё", { Normal="e";   First=None;      Initial=None     }
+        "ж", { Normal="zh";  First=None;      Initial=Some "z" }
+        "з", { Normal="z";   First=None;      Initial=None     }
+        "и", { Normal="i";   First=None;      Initial=None     }
+        "й", { Normal="y";   First=None;      Initial=None     }
+        "к", { Normal="k";   First=None;      Initial=None     }
+        "л", { Normal="l";   First=None;      Initial=None     }
+        "м", { Normal="m";   First=None;      Initial=None     }
+        "н", { Normal="n";   First=None;      Initial=None     }
+        "о", { Normal="o";   First=None;      Initial=None     }
+        "п", { Normal="p";   First=None;      Initial=None     }
+        "р", { Normal="r";   First=None;      Initial=None     }
+        "с", { Normal="s";   First=None;      Initial=None     }
+        "т", { Normal="t";   First=None;      Initial=None     }
+        "у", { Normal="u";   First=None;      Initial=None     }
+        "ф", { Normal="f";   First=None;      Initial=None     }
+        "х", { Normal="h";   First=Some "kh"; Initial=None     }
+        "ц", { Normal="ts";  First=None;      Initial=Some "c" }
+        "ч", { Normal="ch";  First=None;      Initial=Some "c" }
+        "ш", { Normal="sh";  First=None;      Initial=Some "s" }
+        "щ", { Normal="sch"; First=None;      Initial=Some "s" }
+        "ъ", { Normal="";    First=None;      Initial=None     }
+        "ы", { Normal="y";   First=None;      Initial=None     }
+        "ь", { Normal="";    First=None;      Initial=None     }
+        "э", { Normal="e";   First=None;      Initial=None     }
+        "ю", { Normal="yu";  First=None;      Initial=Some "y" }
+        "я", { Normal="ya";  First=None;      Initial=Some "y" }
+        // ПРОПИСНЫЕ
+        "А", { Normal="A";   First=None;      Initial=None     }
+        "Б", { Normal="B";   First=None;      Initial=None     }
+        "В", { Normal="V";   First=None;      Initial=None     }
+        "Г", { Normal="G";   First=None;      Initial=None     }
+        "Д", { Normal="D";   First=None;      Initial=None     }
+        "Е", { Normal="E";   First=None;      Initial=None     }
+        "Ё", { Normal="E";   First=None;      Initial=None     }
+        "Ж", { Normal="Zh";  First=None;      Initial=Some "Z" }
+        "З", { Normal="Z";   First=None;      Initial=None     }
+        "И", { Normal="I";   First=None;      Initial=None     }
+        "Й", { Normal="Y";   First=None;      Initial=None     }
+        "К", { Normal="K";   First=None;      Initial=None     }
+        "Л", { Normal="L";   First=None;      Initial=None     }
+        "М", { Normal="M";   First=None;      Initial=None     }
+        "Н", { Normal="N";   First=None;      Initial=None     }
+        "О", { Normal="O";   First=None;      Initial=None     }
+        "П", { Normal="P";   First=None;      Initial=None     }
+        "Р", { Normal="R";   First=None;      Initial=None     }
+        "С", { Normal="S";   First=None;      Initial=None     }
+        "Т", { Normal="T";   First=None;      Initial=None     }
+        "У", { Normal="U";   First=None;      Initial=None     }
+        "Ф", { Normal="F";   First=None;      Initial=None     }
+        "Х", { Normal="H";   First=Some "Kh"; Initial=None     }
+        "Ц", { Normal="Ts";  First=None;      Initial=Some "C" }
+        "Ч", { Normal="Ch";  First=None;      Initial=Some "C" }
+        "Ш", { Normal="Sh";  First=None;      Initial=Some "S" }
+        "Щ", { Normal="Sch"; First=None;      Initial=Some "S" }
+        "Ъ", { Normal="";    First=None;      Initial=None     }
+        "Ы", { Normal="Y";   First=None;      Initial=None     }
+        "Ь", { Normal="";    First=None;      Initial=None     }
+        "Э", { Normal="E";   First=None;      Initial=None     }
+        "Ю", { Normal="Yu";  First=None;      Initial=Some "Y" }
+        "Я", { Normal="Ya";  First=None;      Initial=Some "Y" }
       |]
 
     let toLatin i letter = 
       match Map.tryFind letter dic, i with
       | Some x, 0 -> 
-        match x.first with 
+        match x.First with 
         | Some y -> y 
-        | None -> x.normal
-      | Some x, _ -> x.normal
+        | None -> x.Normal
+      | Some x, _ -> x.Normal
       | None,   _ -> letter
 
     let toLatinInitial _ letter = 
       match Map.tryFind letter dic with 
       | Some x -> 
-        match x.initial with
+        match x.Initial with
         | Some y -> y
-        | None   -> x.normal
+        | None   -> x.Normal
       | None -> letter
     
     let demount = Array.ofSeq >> Array.map string
