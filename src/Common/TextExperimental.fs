@@ -183,3 +183,45 @@ module Text =
     |> demount
     |> convert
     |> mount
+
+module WordCounter = 
+  open DmitriyVlasov
+
+  open System.Text.RegularExpressions
+
+  type T = {
+    Word        : string
+    FirstLetter : string
+    WordLength  : int
+    WordQty     : int }
+
+  let showWordCounter wc =
+    sprintf "%s\t%s\t%d\t%d" wc.FirstLetter wc.Word wc.WordLength wc.WordQty
+
+  let wordCounter spliterArray filterPredicate text =
+    text
+    |> String.toLower
+    |> String.splitMany spliterArray
+    |> Array.filter filterPredicate
+    |> Array.groupBy id
+    |> Array.map (snd >> Array.countBy id)
+    |> Array.concat
+    |> Array.map (fun (word, qty) -> 
+        {FirstLetter = String.head word
+         Word        = word
+         WordLength  = String.length word
+         WordQty     = qty} )
+
+  let sqlSpliterArray = [|
+      "\r\n"; "\n"; "\t"
+      " "; "["; "]"; "("; ")"
+      "\""; ","; "."; ";"; ":"
+      "*"; "#"; "_"; "/"; "`" 
+      ">"; "="; "-"; "^"; "|"
+      |]
+  let sqlFilterPredicate str = 
+      Regex.IsMatch(str, @"^[a-z']+$") &&
+      String.length str >= 2 
+
+  let sqlWordCounter sql = 
+    wordCounter sqlSpliterArray sqlFilterPredicate sql

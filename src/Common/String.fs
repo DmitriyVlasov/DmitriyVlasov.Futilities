@@ -1,6 +1,14 @@
 ﻿[<RequireQualifiedAccess>]
 module DmitriyVlasov.String
 
+/// <summary>
+///  Возвращает копию строки, преобразуя в нижний регистр, с использование правила приведения инвариантной культуры. 
+/// </summary>
+/// <param name="str"></param>
+/// <returns></returns>
+let inline toLower (str : string) : string =
+    str.ToLowerInvariant ()
+
 /// Обвязка для функции функции <c>Replace</c> объекта: <seealso cref="System.String"/>
 let replace oldValue newValue (str : string) = 
   str.Replace(oldValue = oldValue, newValue = newValue)
