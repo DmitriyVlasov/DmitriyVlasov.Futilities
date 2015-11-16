@@ -1,7 +1,6 @@
-﻿namespace DmitriyVlasov.Experimental
+﻿namespace DmitriyVlasov.Experimental.Text
 
-[<Experimental("Эксперементальные функции обработки текста")>]
-module Text = 
+module Common = 
   open System
   open System.Text
   open DmitriyVlasov
@@ -68,9 +67,9 @@ module Text =
       | _ -> string c
     String.collect clear str
 
+module Translit = 
   // Транслитерация
   // ========================================================================
-  type private RuLetter = string
   type private EnLetter = {
     Normal  : string
     First   : string option
@@ -80,8 +79,8 @@ module Text =
   /// Транслитерация текста с русского в английский.
   /// </summary>
   /// <param name="text"></param>
-  let tr (text:RuLetter) =
-    let dic:Map<RuLetter,EnLetter> = 
+  let run (text:string) =
+    let dic:Map<string,EnLetter> = 
       Map.ofArray [|
         // строчные
         "а", { Normal="a";   First=None;      Initial=None     }
