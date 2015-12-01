@@ -6,8 +6,9 @@ nuget NUnit.Runners
 nuget FAKE
 nuget SourceLink.Fake
 
-nuget FSharp.Management
 nuget ExifLib
+nuget FSharp.Management
 nuget FSharp.Configuration
+nuget FSharp.Data
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
