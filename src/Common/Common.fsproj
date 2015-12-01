@@ -71,12 +71,10 @@
     <Compile Include="CsvExperimental.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
-    <None Include="Scripts\load-references.fsx" />
-    <None Include="Scripts\load-project.fsx" />
-    <None Include="Scripts\Scratchpad.fsx" />
-    <None Include="Scripts\iLearnExifLib.fsx" />
     <None Include="Scripts\load-references-debug.fsx" />
     <None Include="Scripts\load-project-debug.fsx" />
+    <None Include="Scripts\Scratchpad.fsx" />
+    <None Include="Scripts\iLearnExifLib.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

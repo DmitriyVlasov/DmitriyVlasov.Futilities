@@ -1,4 +1,4 @@
-﻿#load "load-project.fsx"
+﻿#load "load-project-debug.fsx"
 
 #I @"../../../packages/ExifLib/lib/net40"
 #r "ExifLib.dll"
