@@ -4,3 +4,6 @@
 #r "System.dll"
 #r "System.Numerics.dll"
 #r "System.Windows.Forms.dll"
+#r "../../../packages/ExtCore/lib/net45/ExtCore.dll"
+#r "../../../packages/FSharp.Data/lib/net40/FSharp.Data.dll"
+#r "System.Xml.Linq.dll"

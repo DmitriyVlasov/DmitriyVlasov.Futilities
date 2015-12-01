@@ -10,5 +10,6 @@ nuget ExifLib
 nuget FSharp.Management
 nuget FSharp.Configuration
 nuget FSharp.Data
+nuget ExtCore
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
