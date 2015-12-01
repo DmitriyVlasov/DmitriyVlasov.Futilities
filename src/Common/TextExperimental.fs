@@ -68,6 +68,12 @@ module Common =
     String.collect clear str
 
 module Translit = 
+  open FSharp.Data
+  open ExtCore
+
+  type TransliterationTable = JsonProvider<"../../data/TransliterationTable.json">
+  let transliterationTable = TransliterationTable.GetSamples()
+
   // Транслитерация
   // ========================================================================
   type private EnLetter = {
@@ -81,76 +87,13 @@ module Translit =
   /// <param name="text"></param>
   let run (text:string) =
     let dic:Map<string,EnLetter> = 
-      Map.ofArray [|
-        // строчные
-        "а", { Normal="a";   First=None;      Initial=None     }
-        "б", { Normal="b";   First=None;      Initial=None     }
-        "в", { Normal="v";   First=None;      Initial=None     }
-        "г", { Normal="g";   First=None;      Initial=None     }
-        "д", { Normal="d";   First=None;      Initial=None     }
-        "е", { Normal="e";   First=None;      Initial=None     }
-        "ё", { Normal="e";   First=None;      Initial=None     }
-        "ж", { Normal="zh";  First=None;      Initial=Some "z" }
-        "з", { Normal="z";   First=None;      Initial=None     }
-        "и", { Normal="i";   First=None;      Initial=None     }
-        "й", { Normal="y";   First=None;      Initial=None     }
-        "к", { Normal="k";   First=None;      Initial=None     }
-        "л", { Normal="l";   First=None;      Initial=None     }
-        "м", { Normal="m";   First=None;      Initial=None     }
-        "н", { Normal="n";   First=None;      Initial=None     }
-        "о", { Normal="o";   First=None;      Initial=None     }
-        "п", { Normal="p";   First=None;      Initial=None     }
-        "р", { Normal="r";   First=None;      Initial=None     }
-        "с", { Normal="s";   First=None;      Initial=None     }
-        "т", { Normal="t";   First=None;      Initial=None     }
-        "у", { Normal="u";   First=None;      Initial=None     }
-        "ф", { Normal="f";   First=None;      Initial=None     }
-        "х", { Normal="h";   First=Some "kh"; Initial=None     }
-        "ц", { Normal="ts";  First=None;      Initial=Some "c" }
-        "ч", { Normal="ch";  First=None;      Initial=Some "c" }
-        "ш", { Normal="sh";  First=None;      Initial=Some "s" }
-        "щ", { Normal="sch"; First=None;      Initial=Some "s" }
-        "ъ", { Normal="";    First=None;      Initial=None     }
-        "ы", { Normal="y";   First=None;      Initial=None     }
-        "ь", { Normal="";    First=None;      Initial=None     }
-        "э", { Normal="e";   First=None;      Initial=None     }
-        "ю", { Normal="yu";  First=None;      Initial=Some "y" }
-        "я", { Normal="ya";  First=None;      Initial=Some "y" }
-        // ПРОПИСНЫЕ
-        "А", { Normal="A";   First=None;      Initial=None     }
-        "Б", { Normal="B";   First=None;      Initial=None     }
-        "В", { Normal="V";   First=None;      Initial=None     }
-        "Г", { Normal="G";   First=None;      Initial=None     }
-        "Д", { Normal="D";   First=None;      Initial=None     }
-        "Е", { Normal="E";   First=None;      Initial=None     }
-        "Ё", { Normal="E";   First=None;      Initial=None     }
-        "Ж", { Normal="Zh";  First=None;      Initial=Some "Z" }
-        "З", { Normal="Z";   First=None;      Initial=None     }
-        "И", { Normal="I";   First=None;      Initial=None     }
-        "Й", { Normal="Y";   First=None;      Initial=None     }
-        "К", { Normal="K";   First=None;      Initial=None     }
-        "Л", { Normal="L";   First=None;      Initial=None     }
-        "М", { Normal="M";   First=None;      Initial=None     }
-        "Н", { Normal="N";   First=None;      Initial=None     }
-        "О", { Normal="O";   First=None;      Initial=None     }
-        "П", { Normal="P";   First=None;      Initial=None     }
-        "Р", { Normal="R";   First=None;      Initial=None     }
-        "С", { Normal="S";   First=None;      Initial=None     }
-        "Т", { Normal="T";   First=None;      Initial=None     }
-        "У", { Normal="U";   First=None;      Initial=None     }
-        "Ф", { Normal="F";   First=None;      Initial=None     }
-        "Х", { Normal="H";   First=Some "Kh"; Initial=None     }
-        "Ц", { Normal="Ts";  First=None;      Initial=Some "C" }
-        "Ч", { Normal="Ch";  First=None;      Initial=Some "C" }
-        "Ш", { Normal="Sh";  First=None;      Initial=Some "S" }
-        "Щ", { Normal="Sch"; First=None;      Initial=Some "S" }
-        "Ъ", { Normal="";    First=None;      Initial=None     }
-        "Ы", { Normal="Y";   First=None;      Initial=None     }
-        "Ь", { Normal="";    First=None;      Initial=None     }
-        "Э", { Normal="E";   First=None;      Initial=None     }
-        "Ю", { Normal="Yu";  First=None;      Initial=Some "Y" }
-        "Я", { Normal="Ya";  First=None;      Initial=Some "Y" }
-      |]
+      transliterationTable
+      |> Array.map (fun letter -> letter.Ru, {
+           Normal  = letter.En.Normal |> Option.fill ""
+           First   = letter.En.First
+           Initial = letter.En.Initial
+          } )
+      |> Map.ofArray
 
     let toLatin i letter = 
       match Map.tryFind letter dic, i with
