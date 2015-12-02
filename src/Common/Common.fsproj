@@ -63,12 +63,12 @@
     <Compile Include="DateTime.fs" />
     <Compile Include="Collections.fs" />
     <Compile Include="Scripting.fs" />
-    <Compile Include="CollectionsExperimental.fs" />
-    <Compile Include="ScriptingExperimental.fs" />
-    <Compile Include="TextExperimental.fs" />
-    <Compile Include="CsvExperimental.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
+    <Compile Include="Experimental\CollectionsEx.fs" />
+    <Compile Include="Experimental\ScriptingEx.fs" />
+    <Compile Include="Experimental\TextEx.fs" />
+    <Compile Include="Experimental\CsvEx.fs" />
     <None Include="Scripts\load-references-debug.fsx" />
     <None Include="Scripts\load-project-debug.fsx" />
     <None Include="Scripts\Scratchpad.fsx" />
