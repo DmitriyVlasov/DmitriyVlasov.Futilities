@@ -1,15 +1,6 @@
 ﻿namespace DmitriyVlasov
 
 [<AutoOpen>]
-module Operators =
-  /// Определяет равны ли предыдующее и текущее значение в последовательности.
-  /// Используется для функций обработки списков, массивов, последовательностей.
-  let inline previousAndCurrentEqual (state, previous) current = 
-    match state with
-    | true  -> previous = current, current 
-    | false -> false, current
-
-[<AutoOpen>]
 module Patterns =
   /// Активный шаблон для сравления текста по регулярным выражениям.
   let (|Regex|_|) pattern input =

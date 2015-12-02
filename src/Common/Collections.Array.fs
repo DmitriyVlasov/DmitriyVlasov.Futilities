@@ -4,4 +4,4 @@ open DmitriyVlasov
 
 /// Возвращает true если все элементы массива одинаковые, иначе false.
 let equal array =
-  Array.fold previousAndCurrentEqual (true, Array.get array 0) array |> fst
+  array |> Array.distinct |> Array.length |> ((=) 1)

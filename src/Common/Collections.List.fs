@@ -4,7 +4,7 @@ open DmitriyVlasov
 
 /// Возвращает true если все элементы списка одинаковые, иначе false.
 let equal list =
-  List.fold previousAndCurrentEqual (true, List.head list) list |> fst
+  list |> List.distinct |> List.length |> ((=) 1)
     
 /// Группирует список на подсписки согласно предикату. Порядок элементов сохраняется во всех созданных подсписках.
 /// Идея и реализация функции заимствована функции groupBy языка Haskell в модуле Data.List.
