@@ -9,6 +9,7 @@
       "../Collections.List.fs"
       "../Collections.Seq.fs"
       "../Scripting.fs"
+      "../CollectionsExperimental.fs"
       "../ScriptingExperimental.fs"
       "../TextExperimental.fs"
       "../CsvExperimental.fs"

@@ -66,6 +66,7 @@
     <Compile Include="Collections.List.fs" />
     <Compile Include="Collections.Seq.fs" />
     <Compile Include="Scripting.fs" />
+    <Compile Include="CollectionsExperimental.fs" />
     <Compile Include="ScriptingExperimental.fs" />
     <Compile Include="TextExperimental.fs" />
     <Compile Include="CsvExperimental.fs" />

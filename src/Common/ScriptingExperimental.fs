@@ -5,7 +5,7 @@ module Scripting =
   open DmitriyVlasov
   open DmitriyVlasov.Collections
   open DmitriyVlasov.Scripting
-
+  open DmitriyVlasov.Experimental.Collections
   open System
   open System.IO
   open ExtCore
