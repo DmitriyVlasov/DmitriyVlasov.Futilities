@@ -9,4 +9,3 @@
       "../Experimental/CollectionsEx.fs"
       "../Experimental/ScriptingEx.fs"
       "../Experimental/TextEx.fs"
-      "../Experimental/CsvEx.fs"
