@@ -129,6 +129,7 @@ module WordCounter =
   open DmitriyVlasov
 
   open System.Text.RegularExpressions
+  open ExtCore
 
   type T = {
     Word        : string
@@ -142,7 +143,7 @@ module WordCounter =
   let wordCounter spliterArray filterPredicate text =
     text
     |> String.toLower
-    |> String.splitMany spliterArray
+    |> String.splits spliterArray
     |> Array.filter filterPredicate
     |> Array.groupBy id
     |> Array.map (snd >> Array.countBy id)

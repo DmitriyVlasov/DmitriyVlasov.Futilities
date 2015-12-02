@@ -16,8 +16,8 @@ module Csv =
     let data = 
       try 
         text
-        |> String.split "\n"
-        |> Array.map (String.split sep)
+        |> String.splits [|"\n"|]
+        |> Array.map (String.splits [|sep|])
         |> array2D
       with 
         | :? System.ArgumentException

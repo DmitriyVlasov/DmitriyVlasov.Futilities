@@ -8,6 +8,7 @@ module Scripting =
 
   open System
   open System.IO
+  open ExtCore
 
   /// Посчитать количество файлов в каталоге в разрезе в разрезе раширений.
   /// Если количество файлов меньше порогового показать пути к файлам.
@@ -30,7 +31,7 @@ module Scripting =
   /// Статистика слов в файлах.
   let wordStatistics codepage delimiters searchPattern dirPath =
     find SearchOption.AllDirectories searchPattern dirPath
-    |> Seq.map (readText codepage >> String.splitMany delimiters)
+    |> Seq.map (readText codepage >> String.splits delimiters)
     |> Seq.concat
     |> Seq.countBy id
     |> Seq.sortBy ( fun (_, number) -> - number )
@@ -117,7 +118,7 @@ module Scripting =
 
   let incBasename delim (basename:string) = 
     let inc = int >> (+) 1 >> string
-    match String.split delim basename with
+    match String.splits [|delim|] basename with
     | [|x|]      -> String.concat delim [x; "1"]
     | [|x;iter|] -> String.concat delim [x; (inc iter)]
     | _ -> basename
