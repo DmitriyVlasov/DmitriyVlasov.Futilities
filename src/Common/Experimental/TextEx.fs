@@ -154,13 +154,15 @@ module WordCounter =
          WordLength  = String.length word
          WordQty     = qty} )
 
+  /// Список разделителей токенов в Sql.
   let sqlSpliterArray = [|
       "\r\n"; "\n"; "\t"
       " "; "["; "]"; "("; ")"
-      "\""; ","; "."; ";"; ":"
+      "\'"; "\""; ","; "."; ";"; ":"
       "*"; "#"; "_"; "/"; "`" 
       ">"; "="; "-"; "^"; "|"
-      |]
+      "--" ; "/*"; "*\\";|]
+
   let sqlFilterPredicate str = 
       Regex.IsMatch(str, @"^[a-z']+$") &&
       String.length str >= 2 

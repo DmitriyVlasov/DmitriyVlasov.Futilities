@@ -36,13 +36,6 @@ module Scripting =
     |> Seq.countBy id
     |> Seq.sortBy ( fun (_, number) -> - number )
 
-  /// Список разделителей токенов в Sql.
-  let sqlDelimiters = 
-    [| "\r\n"; "\t"; " "
-    ; ","; ";"; "."; "="; "|"
-    ; "\""; "\'"; ")"; "("; "]"; "["
-    ; "--" ; "/*"; "*\\"; |]
-
   /// Найти файлы вхождению в их содержимоме ключевых слов
   let searchFilesByContentKeywords keywords filePaths = 
     let content =
