@@ -7,13 +7,6 @@ module Array =
     array |> Array.distinct |> Array.length |> ((=) 1)
 
 [<RequireQualifiedAccess>]
-module Array2D =
-  // http://stackoverflow.com/questions/12870368/array2d-to-array
-  /// Преобразовать (flatten) двухмерный массив в одномерный.
-  let toArray (arr: 'T [,]) =
-    arr |> Seq.cast<'T> |> Seq.toArray
-
-[<RequireQualifiedAccess>]
 module List = 
   /// Возвращает true если все элементы списка одинаковые, иначе false.
   let equal list =
