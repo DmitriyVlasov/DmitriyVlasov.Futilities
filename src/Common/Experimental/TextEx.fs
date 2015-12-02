@@ -71,7 +71,7 @@ module Translit =
   open FSharp.Data
   open ExtCore
 
-  type TransliterationTable = JsonProvider<"../../data/TransliterationTable.json">
+  type TransliterationTable = JsonProvider<"Config/TransliterationTable.json">
   let transliterationTable = TransliterationTable.GetSamples()
 
   // Транслитерация
